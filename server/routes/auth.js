@@ -19,9 +19,6 @@ router.get("/login/success", (req, res) => {
       user: req.user
     });
   }
-  else{
-    res.send('not authenticated')
-  }
 });
 
 router.get("/login/failed", (req, res) => {

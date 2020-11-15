@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Semantic UI</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <!-- Add custom stylesheet here -->
+    <style>
+      .tortoise {
+          height: 8px;
+          width : 9px;
+      }
+      .banner {
+          {{!-- background-image: url('https://rishhabh-bucket.s3.ap-south-1.amazonaws.com/Aquamarine+and+Orange+Bordered+Games+Collection+YouTube+Channel+Art.gif');
+          height: 9vh;
+          background-size: cover; --}}
+          display : flex ; 
+          flex-direction : column ; 
+          justify-content : space-around ; 
+          align-items : center ; 
+          min-height : 250px;
+      }
+      .button4 {
+          width : 300px ;
+          margin-bottom : 70px ;
+      }
+      a {
+          text-decoration: none;
+      }
+  </style>
+  </head>
+  <body>
+    <div class="banner">
+        <a href="/auth/google">
+        <div class=" button4 ui animated fade button" tabindex="0">
+            <div class="visible content">Sign-up</div>
+            <div class="hidden content">
+                with Google
+            </div>
+            </div></a>
+        <a href="/auth/google">
+        <div class=" button4 ui animated fade button" tabindex="0">
+            <div class="visible content">Login</div>
+            <div class="hidden content">
+                with Google
+            </div>
+            </div></a>
+        
+    </div>
+  </body>
+</html>

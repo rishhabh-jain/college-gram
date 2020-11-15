@@ -9,21 +9,21 @@ const MongoStore = require('connect-mongo')(session)
 const app = express()
 var cors = require('cors')
 const router = express.Router();
-// app.use(cors())
+app.use(cors())
 connectDB()
 const cookieParser = require("cookie-parser");
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "*"
-  );
-  if (req.method === 'OPTIONS') {
-      res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-      return res.status(200).json({});
-  }
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "*"
+//   );
+//   if (req.method === 'OPTIONS') {
+//       res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+//       return res.status(200).json({});
+//   }
+//   next();
+// });
 // app.use(
 //   cors({
 //     origin: "http://localhost:3000", // allow to server to accept request from different origin

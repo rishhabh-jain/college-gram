@@ -7,10 +7,10 @@ const connectDB = require('./config/db')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 var cors = require('cors')
+const app = express()
 //body parser
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-const app = express()
 const router = express.Router();
 app.use(cors())
 connectDB()

@@ -6,30 +6,27 @@ const express = require('express')
 const connectDB = require('./config/db')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-const app = express()
 var cors = require('cors')
+//body parser
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+const app = express()
 const router = express.Router();
 app.use(cors())
 connectDB()
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "*"
-//   );
-//   if (req.method === 'OPTIONS') {
-//       res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-//       return res.status(200).json({});
-//   }
-//   next();
-// });
-// app.use(
-//   cors({
-//     origin: "http://localhost:3000", // allow to server to accept request from different origin
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials: true // allow session cookie from browser to pass through
-//   })
-// );
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "*"
+  );
+  if (req.method === 'OPTIONS') {
+      res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+      return res.status(200).json({});
+  }
+  next();
+});
+
 // app.use(
 //   cookieSession({
 //     name: "session",
@@ -40,9 +37,6 @@ connectDB()
 
 
 const PORT = process.env.PORT ||  5000;
-//body parser
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
 
 require('./config/passport')(passport)
 
@@ -60,10 +54,10 @@ app.use(
 //passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(express.static(path.resolve(__dirname, 'views/images')))
-app.use(express.static('views/images')); 
-app.set('views', __dirname + '/views');
-app.set('view engine', 'hbs');
+// app.use(express.static(path.resolve(__dirname, 'views/images')))
+// app.use(express.static('views/images')); 
+// app.set('views', __dirname + '/views');
+// app.set('view engine', 'hbs');
 // app.engine('html', require('hbs').__express);
 // app.use("/testing", (req, res, next) => {
 //   fs.readFile(path.resolve("../build/index.html"), "utf-8", (err, data) => {

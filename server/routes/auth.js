@@ -13,11 +13,12 @@ router.get('/google/callback', passport.authenticate('google', { failureRedirect
 )
 router.get("/login/success", (req, res) => {
   if (req.user) {
-    res.json({
-      success: true,
-      message: "user has successfully authenticated",
-      user: req.user
-    });
+    // res.json({
+    //   success: true,
+    //   message: "user has successfully authenticated",
+    //   user: req.user
+    // });
+    res.send('information of the user')
   }
 });
 
